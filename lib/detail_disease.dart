@@ -83,14 +83,13 @@ class _DetailDSState extends State<DetailDS> {
         child: Icon(Icons.pageview),
         backgroundColor: Colors.greenAccent,
         onPressed: () async {
-          if (await canLaunchUrl(widget.disease.imgUrls as Uri)) {
-            await launchUrl(widget.disease.imgUrls as Uri);
+          if (await canLaunch(widget.disease.imgUrls)) {
+            await launch(widget.disease.imgUrls);
           } else {
             throw 'tidak bisa menampilkan ${widget.disease.imgUrls}';
           }
         },
       ),
     );
-
   }
 }

@@ -15,8 +15,7 @@ class HomePage extends StatelessWidget {
         itemCount: listDisease.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
-          childAspectRatio:
-              1.0,
+          childAspectRatio: 1.0,
         ),
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
@@ -29,21 +28,23 @@ class HomePage extends StatelessWidget {
               );
             },
             child: Card(
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    height: 100.0, // Tinggi gambar
-                    child: Image.network(listDisease[index].imgUrls),
-                  ),
-                  Container(
-                    height: 20.0, // Tinggi teks
-                    child: Text(
-                      listDisease[index].name,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontWeight: FontWeight.bold),
+              child: Expanded( // Wrap the Column with Expanded
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      height: 100.0, // Tinggi gambar
+                      child: Image.network(listDisease[index].imgUrls),
                     ),
-                  ),
-                ],
+                    Container(
+                      height: 20.0, // Tinggi teks
+                      child: Text(
+                        listDisease[index].name,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           );
